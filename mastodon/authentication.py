@@ -1,6 +1,8 @@
 # authentication.py - app and user creation, login, oauth, getting app info, and the constructor
 
-import requests
+from curl_cffi import requests
+# from curl_cffi.requests.models import urlencode
+# import requests
 from requests.models import urlencode
 import datetime
 import os
@@ -73,7 +75,7 @@ class Mastodon(Internals):
                 ret = session.post(f"{api_base_url}/api/v1/apps", data=request_data, headers=headers, timeout=request_timeout)
                 response = ret.json()
             else:
-                response = requests.post(f"{api_base_url}/api/v1/apps", data=request_data, headers=headers, timeout=request_timeout)
+                response = requests.post(f"{api_base_url}/api/v1/apps", data=request_data, headers=headers, timeout=request_timeout, impersonate="chrome110")
                 response = response.json()
         except Exception as e:
             raise MastodonNetworkError(f"Could not complete request: {e}")

@@ -8,7 +8,8 @@ import uuid
 import dateutil.parser
 import time
 import copy
-import requests
+from curl_cffi import requests
+# import requests
 import re
 import collections
 import base64
@@ -149,7 +150,7 @@ class Mastodon():
 
             response_object = None
             try:
-                kwargs = dict(headers=headers, files=files, timeout=self.request_timeout)
+                kwargs = dict(headers=headers, files=files, timeout=self.request_timeout, impersonate="chrome110",)
                 if use_json:
                     kwargs['json'] = params
                 elif method == 'GET':

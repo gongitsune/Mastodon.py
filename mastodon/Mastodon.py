@@ -8,7 +8,9 @@ import time
 import datetime
 import collections
 from contextlib import closing
-import requests
+from curl_cffi import requests
+# from curl_cffi.requests.models import urlencode
+# import requests
 from requests.models import urlencode
 import dateutil
 import dateutil.parser
