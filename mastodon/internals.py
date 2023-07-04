@@ -9,6 +9,7 @@ import dateutil.parser
 import time
 import copy
 from curl_cffi import requests
+import requests.utils
 # import requests
 import re
 import collections
